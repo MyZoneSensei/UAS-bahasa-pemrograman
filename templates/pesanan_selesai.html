@@ -1,0 +1,26 @@
+<!-- templates/pesanan_selesai.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Selesai - Restoran</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <img src="/static/Logo Esa Unggul.png" alt="Logo Universitas Esa Unggul" class="logo">
+    </header>
+    <div class="container">
+        <div class="dialog-box active">
+            <div class="dialog-content">
+                <h2>Rincian Pesanan</h2>
+                <p>Menu: {{ pesanan }}</p>
+                <p>Total Harga: Rp{{ total_harga }}</p>
+                <p>Waktu Pesanan: {{ waktu_pesanan }}</p>
+                <button onclick="location.href='{{ url_for('index') }}'">Ok</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

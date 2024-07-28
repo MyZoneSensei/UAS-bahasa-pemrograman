@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir - Restoran</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <img src="/static/Logo Esa Unggul.png" alt="Logo Universitas Esa Unggul" class="logo">
+    </header>
+    <div class="kasir-page">
+        <div class="container">
+            <div class="kasir-container">
+                <div class="menu-list">
+                    <!-- Text box untuk memilih menu -->
+                    <h2>Pilih menu untuk dipesan</h2>
+                    <form id="order-form" method="POST">
+                        <!-- looping untuk pesanan -->
+                        {% for item in makanan %}
+                            <div class="menu-item">
+                                <input type="checkbox" id="menu_{{ item[0] }}" name="pesanan" value="{{ item[0] }},{{ item[1] }}" data-harga="{{ item[1] }}" data-nama="{{ item[0] }}">
+                                <label for="menu_{{ item[0] }}">{{ item[0] }} Rp. {{ item[1] }},-</label>
+                            </div>
+                        {% endfor %}
+                        {% for item in minuman %}
+                            <div class="menu-item">
+                                <input type="checkbox" id="menu_{{ item[0] }}" name="pesanan" value="{{ item[0] }},{{ item[1] }}" data-harga="{{ item[1] }}" data-nama="{{ item[0] }}">
+                                <label for="menu_{{ item[0] }}">{{ item[0] }} Rp. {{ item[1] }},-</label>
+                            </div>
+                        {% endfor %}
+                        <div class="button-container">
+                            <button type="button" onclick="confirmOrder()">Pesan</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="referensi-menu">
+                    <!-- menaruh gambar agar menu terlihat -->
+                    <h2>Referensi menu makanan</h2>
+                    {% for item in makanan %}
+                        <div class="menu-card">
+                            <img src="/static/{{ item[0] | lower | replace(" ", "_") }}.png" alt="{{ item[0] }}">
+                            <div class="menu-card-content">
+                                <h3>{{ item[0] }}</h3>
+                                <p>Harga: Rp {{ item[1] }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <h2>Referensi menu minuman</h2>
+                    {% for item in minuman %}
+                        <div class="menu-card">
+                            <img src="/static/{{ item[0] | lower | replace(" ", "_") }}.png" alt="{{ item[0] }}">
+                            <div class="menu-card-content">
+                                <h3>{{ item[0] }}</h3>
+                                <p>Harga: Rp {{ item[1] }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menampilkan text konfirmasi pesanan
+        function confirmOrder() {
+            const selectedItems = document.querySelectorAll('input[name="pesanan"]:checked');
+            if (selectedItems.length === 0) {
+                alert('Pilih minimal satu menu.');
+                return;
+            }
+
+            let totalHarga = 0;
+            let selectedMenu = '';
+            selectedItems.forEach(item => {
+                totalHarga += parseInt(item.dataset.harga);
+                selectedMenu += `${item.dataset.nama} (Rp${item.dataset.harga}), `;
+            });
+
+            const confirmation = confirm(`Pesanan Anda: ${selectedMenu}\nTotal Harga: Rp${totalHarga}\nApakah sudah sesuai?`);
+            if (confirmation) {
+                document.getElementById('order-form').submit();
+            }
+        }
+    </script>
+</body>
+</html>

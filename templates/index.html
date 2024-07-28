@@ -1,0 +1,29 @@
+<!-- Halaman pertama tampilan web -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-page">
+        <header>
+            <!-- Penggunaan logo sebagai header -->
+            <img src="/static/Logo Esa Unggul.png" alt="Logo Universitas Esa Unggul" class="logo"> 
+        </header>
+        <div class="content">
+            <!-- Text sebagai tampilan -->
+            <h1>Dzikri Ahmad Fauzi</h1>
+            <p>20230801275 - Bahasa Pemrograman KH002</p>
+            <div class="buttons">
+                <!-- tombol untuk dihubungkan ke mode kasir atau admin -->
+                <a href="{{ url_for('kasir') }}" class="btn-kasir">Kasir</a>
+                <a href="{{ url_for('admin') }}" class="btn-admin">Admin</a>
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="admin-page">
+        <header>
+            <img src="/static/Logo Esa Unggul.png" alt="Logo Universitas Esa Unggul" class="logo">
+        </header>
+        <h1>Admin Mode</h1>
+        <div class="admin-form">
+            <!-- Form untuk menambah database menu -->
+            <form action="/admin" method="POST">
+                <label for="jenis">Jenis:</label>
+                <div>
+                    <input type="radio" id="makanan" name="jenis" value="makanan" required>
+                    <label for="makanan">Makanan</label>
+                </div>
+                <div>
+                    <input type="radio" id="minuman" name="jenis" value="minuman" required>
+                    <label for="minuman">Minuman</label>
+                </div>
+
+                <label for="nama">Nama Menu:</label>
+                <input type="text" id="nama" name="nama" required>
+                
+                <label for="harga">Harga Menu:</label>
+                <input type="number" id="harga" name="harga" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <!-- Pesan jika pesanan berhasil disimpan -->
+        <div class="dialog-box" id="dialog-box">
+            <p>Pesanan berhasil disimpan</p>
+            <button onclick="closeDialog()">OK</button>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </div>
+    <script>
+        function closeDialog() {
+            document.getElementById('dialog-box').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+            window.location.href = '/admin';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const showDialog = "{{ show_dialog }}";
+            if (showDialog == 'True') {
+                document.getElementById('dialog-box').classList.add('active');
+                document.getElementById('overlay').classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
