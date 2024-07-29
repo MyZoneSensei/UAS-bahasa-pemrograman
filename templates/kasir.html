@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kasir - Restoran</title>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <header>
-        <img src="static/Logo Esa Unggul.png" alt="Logo Universitas Esa Unggul" class="logo">
+        <img src="/static/Logo Esa Unggul.png" alt="Logo Universitas Esa Unggul" class="logo">
     </header>
     <div class="kasir-page">
         <div class="container">
@@ -40,7 +40,7 @@
                     <h2>Referensi menu makanan</h2>
                     {% for item in makanan %}
                         <div class="menu-card">
-                            <img src="static/{{ item[0] | lower | replace(" ", "_") }}.png" alt="{{ item[0] }}">
+                            <img src="/static/{{ item[0] | lower | replace(" ", "_") }}.png" alt="{{ item[0] }}">
                             <div class="menu-card-content">
                                 <h3>{{ item[0] }}</h3>
                                 <p>Harga: Rp {{ item[1] }}</p>
@@ -50,7 +50,7 @@
                     <h2>Referensi menu minuman</h2>
                     {% for item in minuman %}
                         <div class="menu-card">
-                            <img src="static/{{ item[0] | lower | replace(" ", "_") }}.png" alt="{{ item[0] }}">
+                            <img src="/static/{{ item[0] | lower | replace(" ", "_") }}.png" alt="{{ item[0] }}">
                             <div class="menu-card-content">
                                 <h3>{{ item[0] }}</h3>
                                 <p>Harga: Rp {{ item[1] }}</p>
