@@ -7,20 +7,20 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column; /* Ensure header is above content */
+    flex-direction: column; 
 }
 
 header {
     display: flex;
-    justify-content: center; /* Centers the header content horizontally */
+    justify-content: center; 
     align-items: center;
     width: 100%;
-    padding: 10px 0; /* Adjust padding to reduce height */
+    padding: 10px 0; 
     background: #FFFFFF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
-    position: fixed; /* Fix header at the top */
-    top: 0; /* Align to the top */
-    z-index: 1000; /* Ensure it is above other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    position: fixed; 
+    top: 0; 
+    z-index: 1000; 
 }
 
 .logo {
@@ -34,12 +34,12 @@ header {
     position: relative;
     width: 100%;
     max-width: 1440px;
-    height: calc(100vh - 60px); /* Adjust for header height */
-    background-image: url('/static/bg\ restoran.png'); /* Tambahkan background image */
+    height: calc(100vh - 60px); 
+    background-image: url('/static/bg\ restoran.png'); 
     background-size: cover;
     background-position: center;
-    padding-top: 60px; /* Space for fixed header */
-    box-sizing: border-box; /* Include padding in element's total width and height */
+    padding-top: 60px; 
+    box-sizing: border-box; 
 }
 
 .content {
@@ -95,13 +95,13 @@ p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 60px 20px 20px; /* Add padding at the top to account for the fixed header */
+    padding: 60px 20px 20px; 
     position: relative;
     width: 100%;
     max-width: 1440px;
-    height: calc(100vh - 60px); /* Ensure it takes the full height of the viewport minus header */
+    height: calc(100vh - 60px); 
     background: #FFFFFF;
-    box-sizing: border-box; /* Include padding in element's total width and height */
+    box-sizing: border-box; 
 }
 
 .kasir-page .container {
@@ -147,8 +147,8 @@ p {
 .menu-card img {
     width: 100%;
     border-radius: 8px;
-    aspect-ratio: 1/1; /* Membuat gambar menjadi persegi */
-    object-fit: cover; /* Menyesuaikan gambar agar memenuhi kotak */
+    aspect-ratio: 1/1; 
+    object-fit: cover; 
 }
 
 .menu-card-content {
@@ -170,23 +170,23 @@ p {
 .kasir-container {
     display: flex;
     justify-content: space-between;
-    width: 100%; /* Ensure it takes full width */
+    width: 100%; 
 }
 
 .referensi-menu {
     width: 65%;
     display: flex;
-    flex-direction: column; /* Display items in column */
-    align-items: center; /* Center the items */
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .referensi-menu h2 {
-    width: 100%; /* Ensure heading takes full width */
-    text-align: center; /* Center the heading */
+    width: 100%; 
+    text-align: center; 
 }
 
 .referensi-menu .menu-card {
-    margin: 10px auto; /* Center each menu card */
+    margin: 10px auto; 
 }
 
 .order-button {
